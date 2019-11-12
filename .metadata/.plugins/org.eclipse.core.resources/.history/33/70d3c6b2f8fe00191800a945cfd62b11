@@ -1,0 +1,46 @@
+package owl.cs.OntoMobile;
+
+import java.io.File;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+public class OnotoEngineering {
+	
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	
+	public OWLOntology CreateOntologies() {
+		
+		OWLOntology newOntology = null;
+		
+	 
+		try {
+			newOntology = man.createOntology();
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return newOntology;
+		
+	}
+	
+	public void LoadOntology() {
+		
+		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\pizza.owl.xml");
+		
+		try {
+			OWLOntology onto = null; 
+			onto = man.loadOntologyFromOntologyDocument(file);
+			System.out.println(onto);
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

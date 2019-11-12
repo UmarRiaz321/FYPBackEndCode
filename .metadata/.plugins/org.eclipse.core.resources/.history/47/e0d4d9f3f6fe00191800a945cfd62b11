@@ -1,0 +1,22 @@
+package owl.cs.OntoMobile;
+
+import org.semanticweb.owlapi.model.OWLOntology;
+
+public class App 
+{
+	public static OnotoEngineering OE = new OnotoEngineering();
+    public static void main( String[] args )
+    {
+            
+    }
+    
+    public void Create() {
+    	
+    	
+    }
+    
+    public void Load() {
+    	
+    	OE.LoadOntology();
+    }
+}

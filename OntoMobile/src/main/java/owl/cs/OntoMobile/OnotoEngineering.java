@@ -1,0 +1,137 @@
+package owl.cs.OntoMobile;
+
+import java.io.FileNotFoundException;
+import java.util.HashSet;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
+import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+
+public class OnotoEngineering {
+
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	public static LoadSaveOntology loadSave = new LoadSaveOntology();
+
+	public OWLOntology CreateOntologies() throws OWLOntologyStorageException, FileNotFoundException {
+
+		OWLOntology newOntology = null;
+
+		try {
+			newOntology = man.createOntology();
+
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		}
+
+		loadSave.SaveTempOntology(newOntology);
+		return newOntology;
+	}
+
+	public OWLOntology AddClass(OWLOntology _onto, String _className)
+			throws OWLOntologyStorageException, FileNotFoundException {
+
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+		df.getOWLClass(_className);
+		OWLDeclarationAxiom da = df.getOWLDeclarationAxiom(df.getOWLClass(_className));
+		_onto.add(da);
+
+		loadSave.SaveTempOntology(_onto);
+		return _onto;
+	}
+
+
+	public OWLOntology AddSubClass(String _ParentClass, String _ClassName, OWLOntology _onto)
+			throws OWLOntologyStorageException, FileNotFoundException {
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+		OWLSubClassOfAxiom w_sub_p = df.getOWLSubClassOfAxiom(df.getOWLClass(_ClassName), df.getOWLClass(_ParentClass));
+		_onto.add(w_sub_p);
+		loadSave.SaveTempOntology(_onto);
+		return _onto;
+	}
+
+	public OWLOntology AddInstance(String _ClassName, String InstanceName, OWLOntology _onto)
+			throws OWLOntologyStorageException, FileNotFoundException {
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+		OWLClassAssertionAxiom instance = df.getOWLClassAssertionAxiom(df.getOWLClass(_ClassName),
+				df.getOWLNamedIndividual(InstanceName));
+		_onto.add(instance);
+		loadSave.SaveTempOntology(_onto);
+		return _onto;
+	}
+
+	public OWLOntology AddObjectProperty(String ActiveIndName, String PassiveIndName, String Property,
+			OWLOntology _onto) throws OWLOntologyStorageException, FileNotFoundException {
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+		OWLObjectPropertyAssertionAxiom propertyAssertion = df.getOWLObjectPropertyAssertionAxiom(
+				df.getOWLObjectProperty(Property), df.getOWLNamedIndividual(ActiveIndName),
+				df.getOWLNamedIndividual(PassiveIndName));
+		_onto.add(propertyAssertion);
+		loadSave.SaveTempOntology(_onto);
+		return _onto;
+	}
+
+	public OWLOntology AddDataProperty(String ActiveIndName, String Property, int value, OWLOntology _onto)
+			throws OWLOntologyStorageException, FileNotFoundException {
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+		OWLDataPropertyAssertionAxiom dataPropertyAssertion = df.getOWLDataPropertyAssertionAxiom(
+				df.getOWLDataProperty(Property), df.getOWLNamedIndividual(ActiveIndName), value);
+		_onto.add(dataPropertyAssertion);
+		loadSave.SaveTempOntology(_onto);
+		return _onto;
+	}
+	
+	
+	@SuppressWarnings("deprecation")
+	public OWLOntology RemoveClass(OWLOntology _onto, String _ClassName) throws OWLOntologyStorageException, FileNotFoundException {
+
+		OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+       for(OWLOntology o : _onto.getImportsClosure()){
+      HashSet<OWLAxiom>  axiomsToRemove = new HashSet<OWLAxiom>();
+      for (OWLAxiom ax : o.getAxioms())
+      if (ax.getSignature().contains(df.getOWLClass(_ClassName))) {
+                    axiomsToRemove.add(ax);
+                    System.out.println("to remove from " + o.getOntologyID().getOntologyIRI() + ": " + ax);
+                }
+                
+                
+                 man.removeAxioms(o, axiomsToRemove);
+        }
+        
+       
+        
+        loadSave.SaveTempOntology(_onto);
+        
+		return _onto;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public OWLOntology RemoveInstance(OWLOntology _onto, String InstanceName) throws OWLOntologyStorageException, FileNotFoundException{
+	OWLDataFactory df = _onto.getOWLOntologyManager().getOWLDataFactory();
+	for(OWLOntology o: _onto.getImportsClosure()){
+	 HashSet<OWLAxiom>  axiomsToRemove = new HashSet<OWLAxiom>();
+	 
+	 for (OWLAxiom ax : o.getAxioms()){
+	 
+	  if (ax.getSignature().contains(df.getOWLNamedIndividual(InstanceName))) {
+                    axiomsToRemove.add(ax);
+	 
+	 }
+	 
+	}
+	man.removeAxioms(o, axiomsToRemove);
+	}
+	loadSave.SaveTempOntology(_onto);
+	return _onto;
+	
+	}
+
+}

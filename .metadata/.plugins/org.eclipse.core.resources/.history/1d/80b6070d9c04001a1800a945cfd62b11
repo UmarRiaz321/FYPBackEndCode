@@ -1,0 +1,67 @@
+package owl.cs.OntoMobile;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.formats.FunctionalSyntaxDocumentFormat;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+public class LoadSaveOntology {
+
+	
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	
+	public OWLOntology LoadOntologyFile(String Path) throws OWLOntologyStorageException, FileNotFoundException {
+		File file = new File(Path);
+		OWLOntology onto = null;
+		try {
+			 onto = man.loadOntologyFromOntologyDocument(file);
+			System.out.println(onto);
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return onto;
+		
+	}
+	
+	public OWLOntology LoadOntologyWeb(String Path) {
+		IRI pizzaontology = IRI.create("http://protege.stanford.edu/ontologies/pizza/pizza.owl");
+		OWLOntology onto = null;
+		try 
+		{
+			onto = man.loadOntology(pizzaontology);
+		} 
+		catch (OWLOntologyCreationException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
+		return onto;
+	}
+	
+	
+	public void SaveOntology(OWLOntology newOntology, String name) throws OWLOntologyStorageException, FileNotFoundException {
+		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\"+name+".owl.xml");
+		man.saveOntology(newOntology, new FunctionalSyntaxDocumentFormat(),new FileOutputStream(file));
+		System.out.println("Saved");
+		man.removeOntology(newOntology);
+	}
+	
+	
+	public void SaveTempOntology(OWLOntology newOntology) throws OWLOntologyStorageException, FileNotFoundException {
+		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\temp\\"+"TempOnto"+".owl.xml");
+		man.saveOntology(newOntology, new FunctionalSyntaxDocumentFormat(),new FileOutputStream(file));
+		System.out.println("Saved");
+	}
+	
+	
+}

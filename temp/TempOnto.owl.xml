@@ -1,0 +1,28 @@
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(
+Declaration(Class(<Person>))
+Declaration(ObjectProperty(<haswife>))
+Declaration(DataProperty(<hasAge>))
+Declaration(NamedIndividual(<>))
+Declaration(NamedIndividual(<Fatima>))
+Declaration(NamedIndividual(<Stuart>))
+
+
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <Stuart> (<Stuart>)
+
+DataPropertyAssertion(<hasAge> <Stuart> "25"^^xsd:integer)
+
+
+)

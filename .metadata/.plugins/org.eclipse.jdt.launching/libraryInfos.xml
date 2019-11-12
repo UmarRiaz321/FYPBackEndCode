@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE" version="1.8.0_141">
+<bootpath>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\resources.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\rt.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\sunrsasign.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\jsse.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\jce.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\charsets.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\jfr.jar"/>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\ProgramData\App-V\00B08E1C-11A7-4A6A-966F-16F47C88177B\903DBFB5-B522-4D9D-BDF6-39C7D6483333\Root\VFS\ProgramFilesX64\Eclipse 4.7 Oxygen\eclipse\JRE\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

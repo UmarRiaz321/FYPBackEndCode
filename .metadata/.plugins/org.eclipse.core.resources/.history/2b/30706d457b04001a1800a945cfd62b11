@@ -1,0 +1,84 @@
+package owl.cs.OntoMobile;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class OntoMobileController {
+	
+	
+	public static OnotoEngineering OE = new OnotoEngineering();
+	public static LoadSaveOntology loadSave= new LoadSaveOntology();
+	public static OWLOntology newOntology = null;
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	
+	@RequestMapping("/")
+    public String index() {
+        return "Congratulations from BlogController.java";
+    }
+
+	
+
+	@RequestMapping("/CreateOntology")
+    public String CreateOntology() {
+		
+		 newOntology = OE.CreateOntologies();
+    	 System.out.println("Axioms: "+newOntology.getAxiomCount()+", Format:"+man.getOntologyFormat(newOntology ));
+    	 return "Axioms: "+newOntology.getAxiomCount()+", Format:"+man.getOntologyFormat(newOntology);
+	}
+	
+	@RequestMapping("/LoadOntology")
+	public static String Load() throws IOException {
+		
+		 System.out.println("Enter 1 to load from File");
+		    System.out.println("Enter 2 to load from Web");
+		    @SuppressWarnings("resource")
+			Scanner in = new Scanner(System.in);  
+		    int choice	= in.nextInt();
+		    @SuppressWarnings("resource")
+			Scanner st = new Scanner(System.in);  
+		     if(choice == 1) {
+		    	 System.out.println("Enter Path");
+		    	 String Path = st.nextLine();
+		    	 
+		    	 newOntology= loadSave.LoadOntologyFile(Path);
+		     }else {
+		    	 System.out.println("Enter Path");
+		    	 String Path = st.nextLine();
+		    	 newOntology= loadSave.LoadOntologyWeb(Path);
+		    	 System.out.println("Axioms: "+newOntology.getAxiomCount()+", Format:"+man.getOntologyFormat(newOntology));
+		     } 
+		     
+		     
+		     return "Axioms: "+newOntology.getAxiomCount()+", Format:"+man.getOntologyFormat(newOntology);
+		     
+		    }
+	
+@RequestMapping("/SaveOntology")
+public static void Save() {
+    	
+    	try {
+			loadSave.SaveOntology(newOntology, "test");
+		} catch (OWLOntologyStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    public static void CreateClass(String ClassName) {
+    newOntology =	OE.AddClass(newOntology, ClassName);
+    System.out.println("Axioms: "+newOntology.getAxiomCount()+", Format:"+man.getOntologyFormat(newOntology));
+    }
+	 
+}

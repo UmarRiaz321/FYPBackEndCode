@@ -1,0 +1,50 @@
+package owl.cs.OntoMobile;
+
+import java.io.File;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+public class LoadSaveOntology {
+
+	
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	
+	public OWLOntology LoadOntologyFile() {
+		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\pizza.owl.xml");
+		try {
+			OWLOntology onto = null; 
+			onto = man.loadOntologyFromOntologyDocument(file);
+			return onto;
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			return null;
+		}
+		
+		
+	}
+	
+	public OWLOntology LoadOntologyWeb() {
+		IRI pizzaontology = IRI.create("http://protege.stanford.edu/ontologies/pizza/pizza.owl");
+		try {
+			OWLOntology onto = null;
+			onto = man.loadOntology(pizzaontology);
+			return onto;
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return  null;
+		}		
+	}
+	
+	
+	public void SaveOntology(OWLOntology newOntology) {
+		
+		
+	}
+}

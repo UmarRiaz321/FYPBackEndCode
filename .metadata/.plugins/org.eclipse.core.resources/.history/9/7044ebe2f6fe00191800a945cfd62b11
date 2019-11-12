@@ -1,0 +1,18 @@
+package owl.cs.OntoMobile;
+
+import org.semanticweb.owlapi.model.OWLOntology;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+            
+    	OnotoEngineering OE = new OnotoEngineering();
+    	
+    	OWLOntology newOnto = OE.CreateOntologies();
+    	
+    	System.out.println(newOnto);
+    	
+   
+    }
+}

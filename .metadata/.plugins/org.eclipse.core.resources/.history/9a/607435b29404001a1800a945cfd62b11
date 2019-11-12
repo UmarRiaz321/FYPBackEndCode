@@ -1,0 +1,59 @@
+package owl.cs.OntoMobile;
+
+import java.io.FileNotFoundException;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
+
+public class OnotoEngineering {
+	
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	public static LoadSaveOntology loadSave= new LoadSaveOntology();
+	
+	public OWLOntology CreateOntologies() throws OWLOntologyStorageException, FileNotFoundException {
+		
+		OWLOntology newOntology = null;
+		
+	 
+		try {
+			newOntology = man.createOntology();
+			
+		} catch (OWLOntologyCreationException e) {
+			e.printStackTrace();
+		}
+		
+		loadSave.SaveTempOntology(newOntology);
+		return newOntology;
+		
+	}
+	
+	
+   public OWLOntology AddClass(OWLOntology _onto ,String _className) {
+	   
+	   OWLDataFactory df =_onto.getOWLOntologyManager().getOWLDataFactory();
+	   df.getOWLClass(_className);
+	   OWLDeclarationAxiom da = df.getOWLDeclarationAxiom(df.getOWLClass(_className));
+	   _onto.add(da);
+	   return _onto;
+   }
+   
+   public OWLOntology RemoveClass(OWLOntology _onto, String _ClassName) {
+	   
+	  // OWLDataFactory df =_onto.getOWLOntologyManager().getOWLDataFactory();
+	   return _onto;
+   }
+   
+   public OWLOntology AddSubClass(String _ParentClass, String _ClassName, OWLOntology _onto) {
+	   OWLDataFactory df =_onto.getOWLOntologyManager().getOWLDataFactory();
+	   OWLSubClassOfAxiom w_sub_p = df.getOWLSubClassOfAxiom(df.getOWLClass(_ClassName), df.getOWLClass(_ParentClass));
+	   _onto.add(w_sub_p);
+	return _onto;   
+   }
+
+}

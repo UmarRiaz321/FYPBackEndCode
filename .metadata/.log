@@ -1,0 +1,148 @@
+!SESSION 2019-11-04 10:19:49.462 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_141
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2019-11-04 10:24:32.140
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2019-11-04 10:24:32.141
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE Software being installed: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE Missing requirement: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core 1.13.0.20190716-1624) requires 'bundle com.google.guava [27.1.0,28.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.141
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE From: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core.ui 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE To: bundle org.eclipse.m2e.core [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.141
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE From: m2e logback appender 1.13.0.20190716-1624 (org.eclipse.m2e.logback.appender 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE To: bundle org.eclipse.m2e.core.ui [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.141
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE From: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.141
+!MESSAGE To: org.eclipse.m2e.logback.appender [1.13.0.20190716-1624]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2019-11-04 10:24:32.167
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2019-11-04 10:24:32.167
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE Software being installed: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE Missing requirement: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core 1.13.0.20190716-1624) requires 'bundle com.google.guava [27.1.0,28.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.167
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE From: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core.ui 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE To: bundle org.eclipse.m2e.core [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.167
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE From: m2e logback appender 1.13.0.20190716-1624 (org.eclipse.m2e.logback.appender 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE To: bundle org.eclipse.m2e.core.ui [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.167
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE From: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.167
+!MESSAGE To: org.eclipse.m2e.logback.appender [1.13.0.20190716-1624]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2019-11-04 10:24:32.196
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2019-11-04 10:24:32.196
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE Software being installed: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE Missing requirement: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core 1.13.0.20190716-1624) requires 'bundle com.google.guava [27.1.0,28.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.196
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE From: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core.ui 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE To: bundle org.eclipse.m2e.core [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.196
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE From: m2e logback appender 1.13.0.20190716-1624 (org.eclipse.m2e.logback.appender 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE To: bundle org.eclipse.m2e.core.ui [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.196
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE From: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.196
+!MESSAGE To: org.eclipse.m2e.logback.appender [1.13.0.20190716-1624]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 10053 2019-11-04 10:24:32.197
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 10053 2019-11-04 10:24:32.197
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE Software being installed: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE Missing requirement: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core 1.13.0.20190716-1624) requires 'bundle com.google.guava [27.1.0,28.0.0)' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.197
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE From: Maven Integration for Eclipse 1.13.0.20190716-1624 (org.eclipse.m2e.core.ui 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE To: bundle org.eclipse.m2e.core [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.197
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE From: m2e logback appender 1.13.0.20190716-1624 (org.eclipse.m2e.logback.appender 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE To: bundle org.eclipse.m2e.core.ui [1.13.0,1.14.0)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2019-11-04 10:24:32.197
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE From: m2e - slf4j over logback logging (Optional) 1.13.0.20190716-1624 (org.eclipse.m2e.logback.feature.feature.group 1.13.0.20190716-1624)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2019-11-04 10:24:32.197
+!MESSAGE To: org.eclipse.m2e.logback.appender [1.13.0.20190716-1624]
+!SESSION 2019-11-04 10:28:06.254 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_141
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data file:/C:/Users/ur13/Documents/Work/FYP/
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-11-04 10:50:14.305
+!MESSAGE Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2019-11-04 10:50:15.340
+!MESSAGE Failed to dispatch repository event to org.eclipse.m2e.core.internal.embedder.EclipseRepositoryListener: null
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:33:50.072
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:33:51.445
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:33:59.379
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM C:\Users\ur13\Documents\Work\FYP\OntoMobile\pom.xml: end tag name </pluginManagement> must match start tag name <plugins> from line 45 (position: TEXT seen ...</plugins>\n    </pluginManagement>... @91:24)  @ line 91, column 24
+ for project  at C:\Users\ur13\Documents\Work\FYP\OntoMobile\pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:33:59.475
+!MESSAGE Could not read pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:34:16.381
+!MESSAGE Failed to read Maven project: 1 problem was encountered while building the effective model
+[FATAL] Non-parseable POM C:\Users\ur13\Documents\Work\FYP\OntoMobile\pom.xml: end tag name </pluginManagement> must match start tag name <plugins> from line 45 (position: TEXT seen ...</plugins>\n    </pluginManagement>... @88:24)  @ line 88, column 24
+ for project  at C:\Users\ur13\Documents\Work\FYP\OntoMobile\pom.xml
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2019-11-11 10:34:16.413
+!MESSAGE Could not read pom.xml

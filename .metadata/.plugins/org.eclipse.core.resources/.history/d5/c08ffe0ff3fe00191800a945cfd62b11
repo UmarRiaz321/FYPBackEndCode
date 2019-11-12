@@ -1,0 +1,28 @@
+package owl.cs.OntoMobile;
+
+import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
+
+public class OnotoEngineering {
+	
+	public static OWLOntologyManager man = OWLManager.createOWLOntologyManager();
+	
+	public OWLOntology CreateOntologies() {
+		
+		OWLOntology newOntology;
+		
+	 
+		try {
+			newOntology = man.createOntology();
+		} catch (OWLOntologyCreationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return newOntology;
+	  
+		
+	}
+
+}

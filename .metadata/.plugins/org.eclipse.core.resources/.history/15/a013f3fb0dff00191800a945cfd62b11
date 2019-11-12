@@ -1,0 +1,37 @@
+package owl.cs.OntoMobile;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import org.semanticweb.owlapi.model.OWLOntology;
+
+public class App 
+{
+	public static OnotoEngineering OE = new OnotoEngineering();
+	public static LoadSaveOntology loadSave= new LoadSaveOntology();
+    public static void main( String[] args ) throws IOException
+    {
+            Load();
+    }
+    
+    public static void Create() {
+    	
+    	OWLOntology newOntology = OE.CreateOntologies();
+    	 System.out.println(newOntology);
+    }
+    
+    public static void Load() throws IOException {
+    System.out.println("Enter 1 to load from File");
+    System.out.println("Enter 2 to load from Web");	
+   // BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    @SuppressWarnings("resource")
+	Scanner in = new Scanner(System.in);  
+    int choice	= in.nextInt();
+     if(choice == 1) {
+    	 loadSave.LoadOntologyFile();
+     }else {
+    	 loadSave.LoadOntologyWeb();
+     }
+    
+    }
+}

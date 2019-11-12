@@ -1,0 +1,54 @@
+package owl.cs.OntoMobile;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
+import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+
+public class App 
+{
+	public static OnotoEngineering OE = new OnotoEngineering();
+	public static LoadSaveOntology loadSave= new LoadSaveOntology();
+	public static OWLOntology newOntology = null;
+    public static void main( String[] args ) throws IOException
+    {
+    	Create();
+    	Save();
+    	Load();
+     
+    }
+    
+    public static void Create() {
+    	
+    	 newOntology = OE.CreateOntologies();
+    	 System.out.println(newOntology);
+    }
+    
+    public static void Load() throws IOException {
+    System.out.println("Enter 1 to load from File");
+    System.out.println("Enter 2 to load from Web");
+    @SuppressWarnings("resource")
+	Scanner in = new Scanner(System.in);  
+    int choice	= in.nextInt();
+     if(choice == 1) {
+    	 newOntology= loadSave.LoadOntologyFile();
+     }else {
+    	 newOntology= loadSave.LoadOntologyWeb();
+     } 
+    }
+    
+    public static void Save() {
+    	
+    	try {
+			loadSave.SaveOntology(newOntology, "test");
+		} catch (OWLOntologyStorageException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+}
