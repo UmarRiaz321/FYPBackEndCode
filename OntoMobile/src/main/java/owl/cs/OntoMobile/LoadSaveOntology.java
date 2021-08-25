@@ -2,15 +2,14 @@ package owl.cs.OntoMobile;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.formats.FunctionalSyntaxDocumentFormat;
+import org.semanticweb.owlapi.io.RDFXMLOntologyFormat;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.PrefixManager;
 
 public class LoadSaveOntology {
 
@@ -19,16 +18,17 @@ public class LoadSaveOntology {
 	
 	public OWLOntology LoadOntologyFile(String Path) throws OWLOntologyStorageException, FileNotFoundException {
 		File file = new File(Path);
+		IRI iri = IRI.create(file);
 		OWLOntology onto = null;
 		try {
-			 onto = man.loadOntologyFromOntologyDocument(file);
+			 onto = man.loadOntologyFromOntologyDocument(iri);
 			System.out.println(onto);
 		} catch (OWLOntologyCreationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		SaveTempOntology(onto);
+		//SaveTempOntology(onto,pm);
 		return onto;
 		
 	}
@@ -49,19 +49,25 @@ public class LoadSaveOntology {
 		return onto;
 	}
 	
-	
 	public void SaveOntology(OWLOntology newOntology, String name) throws OWLOntologyStorageException, FileNotFoundException {
-		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\"+name+".owl.xml");
-		man.saveOntology(newOntology, new FunctionalSyntaxDocumentFormat(),new FileOutputStream(file));
+		File file = new File("C:\\Users\\Umar\\Documents\\Fyp\\temp\\"+name+".owl");
+		@SuppressWarnings("deprecation")
+		RDFXMLOntologyFormat owlxmlFormat = new RDFXMLOntologyFormat();
+		man.saveOntology(newOntology, owlxmlFormat, IRI.create(file.toURI()));
 		System.out.println("Saved");
 		man.removeOntology(newOntology);
 	}
-	
-	
-	public void SaveTempOntology(OWLOntology newOntology) throws OWLOntologyStorageException, FileNotFoundException {
-		File file = new File("C:\\Users\\ur13\\Documents\\Work\\FYP\\temp\\"+"TempOnto"+".owl.xml");
-		man.saveOntology(newOntology, new FunctionalSyntaxDocumentFormat(),new FileOutputStream(file));
+	public void SaveTempOntology(OWLOntology newOntology, PrefixManager pm) throws OWLOntologyStorageException, FileNotFoundException {
+		
+		File file = new File("C:\\Users\\Umar\\Documents\\Fyp\\temp\\TempOnto.owl"); 
+		@SuppressWarnings("deprecation")
+		RDFXMLOntologyFormat owlxmlFormat = new RDFXMLOntologyFormat();
+		owlxmlFormat.copyPrefixesFrom(pm);
+		man.saveOntology(newOntology, owlxmlFormat, IRI.create(file.toURI()));
 		System.out.println("Saved");
+		man.removeOntology(newOntology);
+		System.out.println("Ontology Removed from Manger");
+		
 	}
 	
 	
